@@ -19,12 +19,12 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- BOTÓN SUBIR (SCROLL TOP) -->
+  <!-- BOTÓN SUBIR (SCROLL TOP) - Mismo tamaño y color café -->
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Subir arriba">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- NAVBAR FIJO -->
+  <!-- NAVBAR FIJO con número telefónico -->
   <header class="navbar">
     <div class="container nav-container">
       <div class="logo">
@@ -41,6 +41,12 @@
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
       </nav>
+      <div class="nav-phone">
+        <a href="tel:+525544705244" class="phone-link">
+          <i class="fas fa-phone-alt"></i>
+          <span>55 4470 5244</span>
+        </a>
+      </div>
       <div class="hamburger" id="hamburger" aria-label="Menú móvil">
         <i class="fas fa-bars"></i>
       </div>
@@ -48,7 +54,7 @@
   </header>
 
   <main>
-    <!-- SECCIÓN HERO: CARRUSEL AUTOMÁTICO (transición suave sin efecto blanco) -->
+    <!-- SECCIÓN HERO: CARRUSEL AUTOMÁTICO -->
     <section id="inicio" class="hero-carousel">
       <div class="carousel-container" id="carousel">
         <div class="carousel-slides" id="carouselSlides">
@@ -83,10 +89,8 @@
             </div>
           </div>
         </div>
-        <!-- controles prev/next -->
         <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-        <!-- dots indicadores -->
         <div class="carousel-dots" id="carouselDots">
           <span class="dot active"></span>
           <span class="dot"></span>
@@ -95,7 +99,7 @@
       </div>
     </section>
 
-    <!-- SERVICIOS JURÍDICOS PRINCIPALES (8 áreas de práctica: 5 originales + 3 nuevas) -->
+    <!-- SERVICIOS JURÍDICOS PRINCIPALES (8 áreas) -->
     <section id="servicios" class="section servicios-section">
       <div class="container">
         <div class="section-header fade-up">
@@ -130,7 +134,6 @@
             <h3>Constitución de empresas</h3>
             <p>Constitución de sociedades, permisos y estructura legal desde cero.</p>
           </div>
-          <!-- 3 nuevas áreas de práctica -->
           <div class="servicio-card fade-up">
             <div class="servicio-icon"><i class="fas fa-gavel"></i></div>
             <h3>Derecho penal empresarial</h3>
@@ -150,7 +153,7 @@
       </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: SERVICIOS DETALLADOS CON IMÁGENES (6 servicios) -->
+    <!-- SECCIÓN SERVICIOS DETALLADOS CON IMÁGENES (6 servicios) -->
     <section id="servicios-detallados" class="section servicios-detallados-section">
       <div class="container">
         <div class="section-header fade-up">
@@ -168,7 +171,7 @@
             </div>
           </div>
           <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6b3?w=400&h=250&fit=crop" alt="Litigios" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=250&fit=crop" alt="Litigios estratégicos" loading="lazy">
             <div class="detalle-content">
               <h3>Litigios estratégicos</h3>
               <p>Representación en juicios civiles, mercantiles y administrativos con alta efectividad.</p>
@@ -182,7 +185,7 @@
             </div>
           </div>
           <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1556741533-6e6a3bd8fa8a?w=400&h=250&fit=crop" alt="Cumplimiento corporativo" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=250&fit=crop" alt="Cumplimiento corporativo" loading="lazy">
             <div class="detalle-content">
               <h3>Cumplimiento corporativo</h3>
               <p>Implementación de programas de compliance y auditorías legales internas.</p>
@@ -229,7 +232,7 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS (TARJETAS) -->
+    <!-- TESTIMONIOS -->
     <section id="testimonios" class="section testimonios-section">
       <div class="container">
         <div class="section-header fade-up">
@@ -266,7 +269,7 @@
       </div>
     </section>
 
-    <!-- CONTACTO + CTA FINAL -->
+    <!-- CONTACTO + FORMULARIO CON ENVÍO A WHATSAPP -->
     <section id="contacto" class="section contact-section">
       <div class="container">
         <div class="section-header fade-up">
@@ -306,7 +309,7 @@
               <i class="fas fa-phone-alt"></i>
               <div>
                 <h4>Teléfono</h4>
-                <p>+52 (55) 1234 5678</p>
+                <p>+52 (55) 4470 5244</p>
               </div>
             </div>
             <div class="info-card">
@@ -330,7 +333,7 @@
     </section>
   </main>
 
-  <!-- FOOTER con imagen de fondo y transparencia -->
+  <!-- FOOTER mejorado -->
   <footer class="footer">
     <div class="footer-overlay"></div>
     <div class="container footer-container">
@@ -361,6 +364,12 @@
         <p>Lun - Vie: 9:00 - 19:00</p>
         <p>Sábados: 10:00 - 14:00</p>
         <p>Atención virtual 24/7</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto directo</h4>
+        <p><i class="fas fa-phone-alt"></i> +52 55 4470 5244</p>
+        <p><i class="fas fa-envelope"></i> contacto@lexcivis.mx</p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: 55 4470 5244</p>
       </div>
     </div>
     <div class="footer-bottom">

@@ -1,4 +1,4 @@
-// ========== 1. CARRUSEL AUTOMÁTICO (transición mejorada sin efecto blanco) ==========
+// ========== 1. CARRUSEL AUTOMÁTICO ==========
 const slides = document.querySelectorAll('.carousel-slide');
 const dots = document.querySelectorAll('.dot');
 const prevBtn = document.getElementById('prevBtn');
@@ -55,7 +55,7 @@ dots.forEach((dot, idx) => {
 
 startAutoCarousel();
 
-// ========== 2. SCROLL REVEAL (fade-up) ==========
+// ========== 2. SCROLL REVEAL ==========
 const fadeElements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver((entries) => {
@@ -78,7 +78,7 @@ setTimeout(() => {
   });
 }, 200);
 
-// ========== 3. MENÚ HAMBURGUESA (responsive) ==========
+// ========== 3. MENÚ HAMBURGUESA ==========
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
@@ -128,11 +128,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ========== 5. FORMULARIO ==========
+// ========== 5. FORMULARIO CON ENVÍO A WHATSAPP ==========
 const contactForm = document.getElementById('contactForm');
+const whatsappNumber = '525544705244'; // Número en formato internacional sin +
+
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    
     const nombre = document.getElementById('nombre')?.value.trim();
     const email = document.getElementById('email')?.value.trim();
     const telefono = document.getElementById('telefono')?.value.trim();
@@ -142,7 +145,19 @@ if (contactForm) {
       alert('Por favor completa todos los campos.');
       return;
     }
-    alert(`✅ ¡Gracias ${nombre}! Hemos recibido tu consulta. Un asesor se comunicará contigo en breve.`);
+
+    // Construir mensaje organizado para WhatsApp
+    const whatsappMessage = `*NUEVA CONSULTA JURÍDICA*%0A%0A*Nombre:* ${encodeURIComponent(nombre)}%0A*Email:* ${encodeURIComponent(email)}%0A*Teléfono:* ${encodeURIComponent(telefono)}%0A*Mensaje:* ${encodeURIComponent(mensaje)}%0A%0A📅 *Solicita consulta gratuita*`;
+    
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    
+    // Abrir WhatsApp en nueva pestaña
+    window.open(whatsappURL, '_blank');
+    
+    // Opcional: mostrar mensaje de confirmación
+    alert(`✅ ¡Gracias ${nombre}! Serás redirigido a WhatsApp para completar tu solicitud.`);
+    
+    // Resetear formulario (opcional)
     contactForm.reset();
   });
 }
