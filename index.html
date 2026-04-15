@@ -4,381 +4,600 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Despacho jurídico especializado en derecho corporativo, laboral y fiscal. Atención personalizada y resultados comprobables. Solicita tu consulta gratuita.">
-  <meta name="keywords" content="abogados, derecho corporativo, asesoría fiscal, contratos, constitución de empresas">
-  <meta name="author" content="Bufete Jurídico">
-  <title>LexCivis | Despacho Jurídico</title>
-  <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="keywords" content="abogados, derecho corporativo, asesoría fiscal, contratos, constitución de empresas, LexCivis">
+  <meta name="author" content="LexCivis Despacho Jurídico">
+  <meta property="og:title" content="LexCivis | Despacho Jurídico">
+  <meta property="og:description" content="Estrategia legal que transforma negocios. +10 años de experiencia en derecho corporativo, laboral y fiscal.">
+  <meta property="og:type" content="website">
+  <title>Góngora | Despacho Jurídico</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/521234567890?text=Hola%2C%20necesito%20una%20consulta%20jurídica" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <!-- ===================== LOADER ===================== -->
+  <div id="page-loader" role="status" aria-label="Cargando">
+    <p class="loader-logo">Góngora <span>Despacho Jurídico</span></p>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- ===================== WHATSAPP FLOAT ===================== -->
+  <a href="https://wa.me/521234567890?text=Hola%2C%20necesito%20una%20consulta%20jur%C3%ADdica"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- BOTÓN SUBIR (SCROLL TOP) - Mismo tamaño y color café -->
-  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Subir arriba">
+  <!-- ===================== SCROLL TOP ===================== -->
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- NAVBAR FIJO con número telefónico -->
-  <header class="navbar">
+  <!-- ===================== MOBILE OVERLAY & MENU ===================== -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="nav-menu-mobile" id="navMobile" aria-label="Menú principal móvil">
+    <a href="#inicio"              class="nav-link">Inicio</a>
+    <a href="#servicios"           class="nav-link">Servicios</a>
+    <a href="#servicios-detallados" class="nav-link">Especialidades</a>
+    <a href="#sobre"               class="nav-link">Nosotros</a>
+    <a href="#testimonios"         class="nav-link">Testimonios</a>
+    <a href="#contacto"            class="nav-link">Contacto</a>
+    <a href="tel:+525544705244" class="phone-link">
+      <i class="fas fa-phone-alt"></i>
+      <span>55 4470 5244</span>
+    </a>
+  </nav>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <div class="logo">
+
+      <a href="#inicio" class="logo" aria-label="LexCivis inicio">
         <span class="logo-icon"><i class="fas fa-gavel"></i></span>
-        <span class="logo-text">LexCivis</span>
-      </div>
-      <nav class="nav-menu" id="navMenu">
+        <span class="logo-text">Góngora Despacho Jurídico</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="nav-menu" aria-label="Menú principal">
         <ul class="nav-links">
-          <li><a href="#inicio" class="nav-link">Inicio</a></li>
-          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#inicio"               class="nav-link">Inicio</a></li>
+          <li><a href="#servicios"            class="nav-link">Servicios</a></li>
           <li><a href="#servicios-detallados" class="nav-link">Especialidades</a></li>
-          <li><a href="#sobre" class="nav-link">Sobre nosotros</a></li>
-          <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+          <li><a href="#sobre"                class="nav-link">Nosotros</a></li>
+          <li><a href="#testimonios"          class="nav-link">Testimonios</a></li>
+          <li><a href="#contacto"             class="nav-link">Contacto</a></li>
         </ul>
       </nav>
+
+      <!-- Phone CTA (desktop) -->
       <div class="nav-phone">
-        <a href="tel:+525544705244" class="phone-link">
+        <a href="tel:+525544705244" class="phone-link" aria-label="Llamar al despacho">
           <i class="fas fa-phone-alt"></i>
           <span>55 4470 5244</span>
         </a>
       </div>
-      <div class="hamburger" id="hamburger" aria-label="Menú móvil">
-        <i class="fas fa-bars"></i>
-      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
   </header>
 
   <main>
-    <!-- SECCIÓN HERO: CARRUSEL AUTOMÁTICO -->
-    <section id="inicio" class="hero-carousel">
+
+    <!-- =================== HERO CAROUSEL =================== -->
+    <section id="inicio" class="hero-carousel" aria-label="Presentación del despacho">
       <div class="carousel-container" id="carousel">
         <div class="carousel-slides" id="carouselSlides">
-          <!-- slide 1 -->
-          <div class="carousel-slide active">
-            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&h=1080&fit=crop');"></div>
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide active" role="group" aria-label="Diapositiva 1 de 3">
+            <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&h=1080&fit=crop&auto=format');"></div>
             <div class="carousel-overlay"></div>
             <div class="carousel-content">
+              <span class="hero-tag"><i class="fas fa-gavel"></i> &nbsp; Despacho jurídico de élite</span>
               <h1>Estrategia legal que transforma negocios</h1>
               <p>Más de 10 años defendiendo los intereses de empresas y particulares con excelencia y confidencialidad.</p>
-              <a href="#contacto" class="btn btn-primary">Agenda tu consulta <i class="fas fa-arrow-right"></i></a>
+              <a href="#contacto" class="btn btn-primary">Agenda tu consulta &nbsp;<i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-          <!-- slide 2 -->
-          <div class="carousel-slide">
-            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1080&fit=crop');"></div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide" role="group" aria-label="Diapositiva 2 de 3">
+            <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1080&fit=crop&auto=format');"></div>
             <div class="carousel-overlay"></div>
             <div class="carousel-content">
-              <h1>Asesoría fiscal y corporativa</h1>
+              <span class="hero-tag"><i class="fas fa-chart-line"></i> &nbsp; Asesoría corporativa</span>
+              <h1>Asesoría fiscal y corporativa de alto nivel</h1>
               <p>Soluciones legales a medida para minimizar riesgos y potenciar tu crecimiento empresarial.</p>
-              <a href="#contacto" class="btn btn-primary">Agenda tu consulta <i class="fas fa-arrow-right"></i></a>
+              <a href="#contacto" class="btn btn-primary">Agenda tu consulta &nbsp;<i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-          <!-- slide 3 -->
-          <div class="carousel-slide">
-            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1920&h=1080&fit=crop');"></div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide" role="group" aria-label="Diapositiva 3 de 3">
+            <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1920&h=1080&fit=crop&auto=format');"></div>
             <div class="carousel-overlay"></div>
             <div class="carousel-content">
+              <span class="hero-tag"><i class="fas fa-shield-alt"></i> &nbsp; Confianza y resultados</span>
               <h1>Confianza y resultados comprobables</h1>
               <p>Equipo multidisciplinario, atención personalizada y defensa de tus derechos con ética profesional.</p>
-              <a href="#contacto" class="btn btn-primary">Agenda tu consulta <i class="fas fa-arrow-right"></i></a>
+              <a href="#contacto" class="btn btn-primary">Agenda tu consulta &nbsp;<i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
+
         </div>
-        <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-        <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-        <div class="carousel-dots" id="carouselDots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Diapositiva anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Diapositiva siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Diapositivas">
+          <span class="dot active" role="tab" aria-label="Ir a diapositiva 1" aria-selected="true"></span>
+          <span class="dot"        role="tab" aria-label="Ir a diapositiva 2"></span>
+          <span class="dot"        role="tab" aria-label="Ir a diapositiva 3"></span>
         </div>
+
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="scroll-hint-line"></div>
+        </div>
+
       </div>
     </section>
 
-    <!-- SERVICIOS JURÍDICOS PRINCIPALES (8 áreas) -->
+    <!-- =================== STATS BAR =================== -->
+    <div class="stats-bar" aria-label="Estadísticas del despacho">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item fade-up">
+            <span class="stat-number" data-count="10" data-suffix="+">10+</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          <div class="stat-item fade-up delay-1">
+            <span class="stat-number" data-count="500" data-suffix="+">500+</span>
+            <span class="stat-label">Casos resueltos</span>
+          </div>
+          <div class="stat-item fade-up delay-2">
+            <span class="stat-number" data-count="98" data-suffix="%">98%</span>
+            <span class="stat-label">Tasa de éxito</span>
+          </div>
+          <div class="stat-item fade-up delay-3">
+            <span class="stat-number" data-count="8">8</span>
+            <span class="stat-label">Áreas de práctica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== SERVICIOS PRINCIPALES =================== -->
     <section id="servicios" class="section servicios-section">
       <div class="container">
+
         <div class="section-header fade-up">
           <span class="section-tag">Especialidades</span>
           <h2>Áreas de práctica</h2>
           <div class="divider"></div>
-          <p>Soluciones integrales con un enfoque estratégico y visión de futuro.</p>
+          <p>Soluciones integrales con enfoque estratégico y visión de futuro.</p>
         </div>
+
         <div class="servicios-grid">
           <div class="servicio-card fade-up">
             <div class="servicio-icon"><i class="fas fa-building"></i></div>
             <h3>Derecho corporativo</h3>
             <p>Gobierno corporativo, fusiones, adquisiciones y cumplimiento normativo.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-1">
             <div class="servicio-icon"><i class="fas fa-users"></i></div>
             <h3>Derecho laboral</h3>
             <p>Defensa de empresas y empleados, contratos, despidos y conciliación.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-2">
             <div class="servicio-icon"><i class="fas fa-chart-line"></i></div>
             <h3>Asesoría fiscal</h3>
             <p>Planificación tributaria, cumplimiento fiscal y defensa ante autoridades.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-3">
             <div class="servicio-icon"><i class="fas fa-file-signature"></i></div>
             <h3>Contratos y litigios</h3>
             <p>Redacción, negociación y resolución de disputas comerciales.</p>
           </div>
           <div class="servicio-card fade-up">
-            <div class="servicio-icon"><i class="fas fa-church"></i></div>
+            <div class="servicio-icon"><i class="fas fa-landmark"></i></div>
             <h3>Constitución de empresas</h3>
             <p>Constitución de sociedades, permisos y estructura legal desde cero.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-1">
             <div class="servicio-icon"><i class="fas fa-gavel"></i></div>
             <h3>Derecho penal empresarial</h3>
             <p>Prevención de riesgos penales y defensa en procedimientos judiciales.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-2">
             <div class="servicio-icon"><i class="fas fa-lightbulb"></i></div>
             <h3>Propiedad intelectual</h3>
             <p>Registro de marcas, patentes, derechos de autor y defensa de innovación.</p>
           </div>
-          <div class="servicio-card fade-up">
+          <div class="servicio-card fade-up delay-3">
             <div class="servicio-icon"><i class="fas fa-globe-americas"></i></div>
             <h3>Derecho internacional</h3>
             <p>Asesoría en negocios transfronterizos, arbitraje y tratados comerciales.</p>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- SECCIÓN SERVICIOS DETALLADOS CON IMÁGENES (6 servicios) -->
+    <!-- =================== SERVICIOS DETALLADOS =================== -->
     <section id="servicios-detallados" class="section servicios-detallados-section">
       <div class="container">
+
         <div class="section-header fade-up">
           <span class="section-tag">Nuestros servicios</span>
           <h2>Soluciones legales a tu medida</h2>
           <div class="divider"></div>
           <p>Conoce los servicios específicos que ofrecemos para proteger tus intereses.</p>
         </div>
+
         <div class="servicios-detallados-grid">
+
           <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=250&fit=crop" alt="Asesoría legal" loading="lazy">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=320&fit=crop&auto=format"
+                   alt="Asesoría legal preventiva" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Asesoría legal preventiva</h3>
               <p>Revisión de contratos, cumplimiento normativo y blindaje legal para tu empresa.</p>
             </div>
           </div>
-          <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=250&fit=crop" alt="Litigios estratégicos" loading="lazy">
+
+          <div class="servicio-detallado-card fade-up delay-1">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=320&fit=crop&auto=format"
+                   alt="Litigios estratégicos" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Litigios estratégicos</h3>
               <p>Representación en juicios civiles, mercantiles y administrativos con alta efectividad.</p>
             </div>
           </div>
-          <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop" alt="Fiscal" loading="lazy">
+
+          <div class="servicio-detallado-card fade-up delay-2">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=320&fit=crop&auto=format"
+                   alt="Defensa fiscal" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Defensa fiscal</h3>
               <p>Recursos, amparos y defensa contra multas y créditos fiscales indebidos.</p>
             </div>
           </div>
+
           <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=250&fit=crop" alt="Cumplimiento corporativo" loading="lazy">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=320&fit=crop&auto=format"
+                   alt="Cumplimiento corporativo" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Cumplimiento corporativo</h3>
               <p>Implementación de programas de compliance y auditorías legales internas.</p>
             </div>
           </div>
-          <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&h=250&fit=crop" alt="Conciliación" loading="lazy">
+
+          <div class="servicio-detallado-card fade-up delay-1">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=320&fit=crop&auto=format"
+                   alt="Conciliación y mediación" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Conciliación y mediación</h3>
               <p>Resolución alternativa de conflictos para evitar juicios largos y costosos.</p>
             </div>
           </div>
-          <div class="servicio-detallado-card fade-up">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" alt="Propiedad intelectual" loading="lazy">
+
+          <div class="servicio-detallado-card fade-up delay-2">
+            <div class="card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=320&fit=crop&auto=format"
+                   alt="Registro de propiedad intelectual" loading="lazy">
+            </div>
             <div class="detalle-content">
               <h3>Registro de propiedad intelectual</h3>
               <p>Gestión completa de marcas, patentes y derechos de autor ante el IMPI.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SOBRE EL DESPACHO + BENEFICIOS -->
+    <!-- =================== SOBRE EL DESPACHO =================== -->
     <section id="sobre" class="section about-section">
       <div class="container">
         <div class="about-wrapper">
-          <div class="about-image fade-up">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop" alt="Equipo legal profesional" loading="lazy">
+
+          <div class="about-image-wrap fade-left">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&h=840&fit=crop&auto=format"
+                 alt="Equipo legal profesional LexCivis" loading="lazy">
+            <div class="about-badge">
+              <strong>10+</strong>
+              <small>años de excelencia</small>
+            </div>
           </div>
-          <div class="about-content fade-up">
+
+          <div class="about-content fade-right">
             <span class="section-tag">Trayectoria</span>
             <h2>Más de una década liderando con ética y excelencia</h2>
             <p>En LexCivis entendemos que cada cliente es único. Nuestra firma nació con el compromiso de ofrecer soluciones jurídicas ágiles, transparentes y orientadas a resultados. Combinamos conocimiento profundo de la ley con un trato humano y cercano.</p>
+
             <div class="benefits-list">
-              <div class="benefit-item"><i class="fas fa-check-circle"></i> <span>+10 años de experiencia</span></div>
-              <div class="benefit-item"><i class="fas fa-check-circle"></i> <span>Atención personalizada</span></div>
-              <div class="benefit-item"><i class="fas fa-check-circle"></i> <span>Confidencialidad garantizada</span></div>
-              <div class="benefit-item"><i class="fas fa-check-circle"></i> <span>Resultados comprobables</span></div>
+              <div class="benefit-item"><i class="fas fa-check-circle"></i><span>+10 años de experiencia</span></div>
+              <div class="benefit-item"><i class="fas fa-check-circle"></i><span>Atención personalizada</span></div>
+              <div class="benefit-item"><i class="fas fa-check-circle"></i><span>Confidencialidad garantizada</span></div>
+              <div class="benefit-item"><i class="fas fa-check-circle"></i><span>Resultados comprobables</span></div>
             </div>
-            <a href="#contacto" class="btn btn-outline">Conoce más <i class="fas fa-long-arrow-alt-right"></i></a>
+
+            <a href="#contacto" class="btn btn-outline">Conoce más &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- TESTIMONIOS -->
+    <!-- =================== TESTIMONIOS =================== -->
     <section id="testimonios" class="section testimonios-section">
       <div class="container">
+
         <div class="section-header fade-up">
           <span class="section-tag">Clientes satisfechos</span>
-          <h2>Lo que opinan de nosotros</h2>
+          <h2>Lo que dicen de nosotros</h2>
           <div class="divider"></div>
         </div>
+
         <div class="testimonios-grid">
+
           <div class="testimonial-card fade-up">
-            <div class="testimonial-img">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto clienta">
+            <div class="testimonial-top">
+              <div class="testimonial-img">
+                <img src="assets/testimonios/03.jpg" alt="Gustavo Escalante" loading="lazy">
+              </div>
+              <div class="testimonial-meta">
+                <h4>Gustavo Escalante</h4>
+                <span class="testimonial-company">Cliente</span>
+              </div>
             </div>
-            <p class="testimonial-text">“Excelente asesoría fiscal. Resolvieron un problema tributario complejo con rapidez y total confidencialidad. Sin duda los recomiendo.”</p>
-            <h4>María Fernanda López</h4>
-            <span class="testimonial-company">CEO, Grupo Inmobiliario ALFA</span>
-          </div>
-          <div class="testimonial-card fade-up">
-            <div class="testimonial-img">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto cliente">
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
-            <p class="testimonial-text">“Constituyeron nuestra startup en tiempo récord y nos asesoran en todos los contratos. Profesionalismo absoluto, se nota la experiencia.”</p>
-            <h4>Javier Méndez</h4>
-            <span class="testimonial-company">Fundador, TechNova Solutions</span>
+            <p class="testimonial-text">"Excelente trato te explica todo a detalle dando solución a tus necesidades."</p>
           </div>
-          <div class="testimonial-card fade-up">
-            <div class="testimonial-img">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Foto clienta">
+
+          <div class="testimonial-card fade-up delay-2">
+            <div class="testimonial-top">
+              <div class="testimonial-img">
+                <img src="assets/testimonios/01.jpg" alt="Juan Enrique" loading="lazy">
+              </div>
+              <div class="testimonial-meta">
+                <h4>Juan Enrique</h4>
+                <span class="testimonial-company">Cliente</span>
+              </div>
             </div>
-            <p class="testimonial-text">“El equipo de derecho laboral resolvió un conflicto delicado con gran habilidad. Atención personalizada y comunicación impecable.”</p>
-            <h4>Carmen Rojas</h4>
-            <span class="testimonial-company">Directora RH, Consorcio Logístico</span>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"El trato, gente que te da confianza y seguridad y te habla claro si puede o no puede y te dice hasta dónde puede o dónde no puede."</p>
           </div>
+
+          <div class="testimonial-card fade-up delay-4">
+            <div class="testimonial-top">
+              <div class="testimonial-img">
+                <img src="assets/testimonios/02.jpg" alt="mario" loading="lazy">
+              </div>
+              <div class="testimonial-meta">
+                <h4>Mario D </h4>
+                <span class="testimonial-company">Cliente</span>
+              </div>
+            </div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Profesionales haciendo su trabajo."</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO + FORMULARIO CON ENVÍO A WHATSAPP -->
+    <!-- =================== CONTACTO =================== -->
     <section id="contacto" class="section contact-section">
       <div class="container">
+
         <div class="section-header fade-up">
           <span class="section-tag">Asesoría inmediata</span>
           <h2>Hablemos de tu caso</h2>
           <div class="divider"></div>
           <p>Completa el formulario y uno de nuestros especialistas te contactará en menos de 24 horas.</p>
         </div>
+
         <div class="contact-wrapper">
-          <div class="contact-form fade-up">
-            <form id="contactForm">
-              <div class="form-group">
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+
+          <!-- Formulario -->
+          <div class="contact-form-card fade-left">
+            <h3>Solicita tu consulta gratuita</h3>
+            <p>Primera asesoría estratégica sin costo. Cuéntanos tu situación.</p>
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text"  id="nombre"   name="nombre"   placeholder="Nombre completo"      required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <input type="email" id="email"    name="email"    placeholder="Correo electrónico"   required autocomplete="email">
+                </div>
               </div>
               <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                <input type="tel"   id="telefono" name="telefono" placeholder="Teléfono de contacto" required autocomplete="tel">
               </div>
               <div class="form-group">
-                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono de contacto" required>
+                <textarea id="mensaje" name="mensaje" rows="4"
+                  placeholder="Cuéntanos tu caso o consulta..." required></textarea>
               </div>
-              <div class="form-group">
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos tu caso o consulta..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-full">Solicita tu consulta gratuita <i class="fas fa-calendar-check"></i></button>
-              <p class="form-disclaimer"><i class="fas fa-lock"></i> Tus datos están seguros y son confidenciales.</p>
+              <button type="submit" class="btn btn-primary btn-full">
+                Solicitar consulta gratuita &nbsp;<i class="fas fa-calendar-check"></i>
+              </button>
+              <p class="form-disclaimer">
+                <i class="fas fa-lock"></i> Tus datos están seguros y son confidenciales.
+              </p>
             </form>
           </div>
-          <div class="contact-info fade-up">
+
+          <!-- Info -->
+          <div class="contact-info fade-right">
+
             <div class="info-card">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
+              <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="info-text">
                 <h4>Oficina principal</h4>
                 <p>Paseo de la Reforma 265, CDMX, México</p>
               </div>
             </div>
+
             <div class="info-card">
-              <i class="fas fa-phone-alt"></i>
-              <div>
+              <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="info-text">
                 <h4>Teléfono</h4>
                 <p>+52 (55) 4470 5244</p>
               </div>
             </div>
+
             <div class="info-card">
-              <i class="fas fa-envelope"></i>
-              <div>
+              <div class="info-icon"><i class="fas fa-envelope"></i></div>
+              <div class="info-text">
                 <h4>Correo electrónico</h4>
                 <p>contacto@lexcivis.mx</p>
               </div>
             </div>
-            <div class="info-card cta-direct">
-              <i class="fas fa-gavel"></i>
-              <div>
-                <h4>Primera consultoría estratégica</h4>
-                <p>Agenda una reunión sin costo y recibe un diagnóstico inicial.</p>
-                <a href="#contacto" class="btn-small-gold">Agendar ahora →</a>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="fas fa-clock"></i></div>
+              <div class="info-text">
+                <h4>Horario de atención</h4>
+                <p>Lun – Vie: 9:00 – 19:00 · Sáb: 10:00 – 14:00</p>
               </div>
             </div>
+
+            <div class="info-card cta-card">
+              <div class="info-icon"><i class="fas fa-gavel"></i></div>
+              <div class="info-text">
+                <h4>Primera consultoría estratégica</h4>
+                <p>Agenda sin costo y recibe un diagnóstico inicial de tu caso.</p>
+                <a href="#contacto" class="btn-gold-sm">Agendar ahora &nbsp;<i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER mejorado -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <div class="footer-overlay"></div>
-    <div class="container footer-container">
-      <div class="footer-col">
-        <div class="footer-logo">
-          <i class="fas fa-gavel"></i> LexCivis
+    <div class="footer-noise" aria-hidden="true"></div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div class="footer-brand">
+            <div class="footer-logo-mark">
+              <i class="fas fa-gavel"></i> LexCivis
+            </div>
+            <p>Despacho jurídico con visión estratégica y compromiso absoluto con nuestros clientes.</p>
+            <div class="social-icons">
+              <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" target="_blank" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div class="footer-col">
+            <h4>Navegación</h4>
+            <ul>
+              <li><a href="#inicio"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Inicio</a></li>
+              <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Servicios</a></li>
+              <li><a href="#servicios-detallados"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Especialidades</a></li>
+              <li><a href="#sobre"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Nosotros</a></li>
+              <li><a href="#testimonios"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Testimonios</a></li>
+              <li><a href="#contacto"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Contacto</a></li>
+            </ul>
+          </div>
+
+          <!-- Hours -->
+          <div class="footer-col footer-hours">
+            <h4>Horario</h4>
+            <p><i class="fas fa-circle" style="font-size:.4rem;color:#4caf50"></i> Lun – Vie: 9:00 – 19:00</p>
+            <p><i class="fas fa-circle" style="font-size:.4rem;color:#4caf50"></i> Sábados: 10:00 – 14:00</p>
+            <p><i class="fas fa-circle" style="font-size:.4rem;color:#ffb300"></i> Virtual: 24/7</p>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-col">
+            <h4>Contacto directo</h4>
+            <div class="footer-contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>+52 55 4470 5244</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>contacto@lexcivis.mx</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp: 55 4470 5244</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Reforma 265, CDMX</span>
+            </div>
+          </div>
+
         </div>
-        <p>Despacho jurídico con visión estratégica y compromiso absoluto con nuestros clientes.</p>
-        <div class="social-icons">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Enlaces rápidos</h4>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#servicios-detallados">Especialidades</a></li>
-          <li><a href="#sobre">Nosotros</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Horario de atención</h4>
-        <p>Lun - Vie: 9:00 - 19:00</p>
-        <p>Sábados: 10:00 - 14:00</p>
-        <p>Atención virtual 24/7</p>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto directo</h4>
-        <p><i class="fas fa-phone-alt"></i> +52 55 4470 5244</p>
-        <p><i class="fas fa-envelope"></i> contacto@lexcivis.mx</p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp: 55 4470 5244</p>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2025 LexCivis Despacho Jurídico. Todos los derechos reservados. <span>| Ética, Transparencia y Resultados</span></p>
+        <p>&copy; 2026 Góngora Despacho Jurídico. Todos los derechos reservados.</p>
+        <p>Diseñado por Teen Informatics&nbsp;|&nbsp; <a href="#contacto">Aviso de privacidad</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,197 +1,321 @@
-// ========== 1. CARRUSEL AUTOMÁTICO ==========
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let currentIndex = 0;
-let autoInterval;
+/* ============================================================
+   LEXCIVIS — JAVASCRIPT OPTIMIZADO
+   ============================================================ */
 
-function updateCarousel(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-  });
+'use strict';
+
+/* ===== UTILIDADES ===== */
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+/* ===================================================
+   1. PAGE LOADER — desaparece tras 1s
+=================================================== */
+(function initLoader() {
+  const loader = $('#page-loader');
+  if (!loader) return;
+
+  const hide = () => {
+    loader.classList.add('hidden');
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+  };
+
+  // Mínimo 1s + espera DOMContentLoaded
+  const t0 = performance.now();
+  const MIN = 1000;
+
+  const go = () => {
+    const elapsed = performance.now() - t0;
+    const wait = Math.max(0, MIN - elapsed);
+    setTimeout(hide, wait);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', go, { once: true });
+  } else {
+    go();
+  }
+})();
+
+/* ===================================================
+   2. CAROUSEL HERO
+=================================================== */
+(function initCarousel() {
+  const slides  = $$('.carousel-slide');
+  const dots    = $$('.dot');
+  const prevBtn = $('#prevBtn');
+  const nextBtn = $('#nextBtn');
+  if (!slides.length) return;
+
+  let current  = 0;
+  let timer    = null;
+  const DELAY  = 6000;
+
+  const goTo = (idx) => {
+    slides[current].classList.remove('active');
+    dots[current]?.classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current]?.classList.add('active');
+  };
+
+  const next = () => goTo(current + 1);
+  const prev = () => goTo(current - 1);
+
+  const startAuto = () => { timer = setInterval(next, DELAY); };
+  const resetAuto = () => { clearInterval(timer); startAuto(); };
+
+  prevBtn?.addEventListener('click', () => { prev(); resetAuto(); });
+  nextBtn?.addEventListener('click', () => { next(); resetAuto(); });
+
   dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
+    dot.addEventListener('click', () => { goTo(i); resetAuto(); });
   });
-  currentIndex = index;
-} 
 
+  // Touch/swipe
+  let touchX = 0;
+  const carousel = $('#carousel');
+  carousel?.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive:true });
+  carousel?.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); resetAuto(); }
+  }, { passive:true });
 
-function nextSlide() {
-  let newIndex = (currentIndex + 1) % slides.length;
-  updateCarousel(newIndex);
-}
+  startAuto();
+})();
 
-function prevSlide() {
-  let newIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel(newIndex);
-}
+/* ===================================================
+   3. NAVBAR — scroll effect + mobile menu
+=================================================== */
+(function initNavbar() {
+  const navbar     = $('.navbar');
+  const hamburger  = $('.hamburger');
+  const mobileMenu = $('.nav-menu-mobile');
+  const overlay    = $('.nav-overlay');
+  if (!navbar) return;
 
-function startAutoCarousel() {
-  autoInterval = setInterval(nextSlide, 6000);
-}
+  // Scroll effect
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 60);
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
 
-function resetAutoCarousel() {
-  clearInterval(autoInterval);
-  startAutoCarousel();
-}
+  // Mobile menu
+  const openMenu  = () => {
+    mobileMenu?.classList.add('open');
+    overlay?.classList.add('visible');
+    hamburger?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeMenu = () => {
+    mobileMenu?.classList.remove('open');
+    overlay?.classList.remove('visible');
+    hamburger?.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  const toggleMenu = () => mobileMenu?.classList.contains('open') ? closeMenu() : openMenu();
 
-if (prevBtn && nextBtn) {
-  prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetAutoCarousel();
+  hamburger?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', closeMenu);
+
+  $$('.nav-menu-mobile .nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
-  nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetAutoCarousel();
-  });
-}
 
-dots.forEach((dot, idx) => {
-  dot.addEventListener('click', () => {
-    updateCarousel(idx);
-    resetAutoCarousel();
-  });
-});
+  // Escape key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
 
-startAutoCarousel();
+/* ===================================================
+   4. SCROLL REVEAL
+=================================================== */
+(function initScrollReveal() {
+  const targets = $$('.fade-up, .fade-left, .fade-right');
+  if (!targets.length) return;
 
-// ========== 2. SCROLL REVEAL ==========
-const fadeElements = document.querySelectorAll('.fade-up');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
-
-fadeElements.forEach(el => observer.observe(el));
-
-setTimeout(() => {
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('revealed');
-    }
-  });
-}, 200);
-
-// ========== 3. MENÚ HAMBURGUESA ==========
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    const icon = hamburger.querySelector('i');
-    if (navMenu.classList.contains('active')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    }
-  });
-}
-
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    const icon = hamburger?.querySelector('i');
-    if (icon) {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    }
-  });
-});
-
-// ========== 4. SCROLL SUAVE ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    if (targetId === "#" || targetId === "") return;
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      e.preventDefault();
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        const icon = hamburger?.querySelector('i');
-        if (icon) {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        io.unobserve(entry.target);
       }
-    }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(el => io.observe(el));
+
+  // Immediate reveal for elements already visible
+  requestAnimationFrame(() => {
+    targets.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        el.classList.add('revealed');
+      }
+    });
   });
-});
+})();
 
-// ========== 5. FORMULARIO CON ENVÍO A WHATSAPP ==========
-const contactForm = document.getElementById('contactForm');
-const whatsappNumber = '525544705244'; // Número en formato internacional sin +
+/* ===================================================
+   5. SMOOTH SCROLL LINKS
+=================================================== */
+(function initSmoothScroll() {
+  const OFFSET = 72; // navbar height
+  $$('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const id = this.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = $(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+})();
 
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+/* ===================================================
+   6. BOTÓN SUBIR
+=================================================== */
+(function initScrollTop() {
+  const btn = $('#scrollTopBtn');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 420);
+  }, { passive:true });
+  btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+})();
+
+/* ===================================================
+   7. FORMULARIO → WhatsApp
+=================================================== */
+(function initContactForm() {
+  const form   = $('#contactForm');
+  const WA_NUM = '525544705244';
+  if (!form) return;
+
+  const showError = (input, msg) => {
+    input.style.borderColor = '#e74c3c';
+    let err = input.parentNode.querySelector('.field-error');
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'field-error';
+      err.style.cssText = 'color:#e74c3c;font-size:.78rem;margin-top:4px;display:block;';
+      input.parentNode.appendChild(err);
+    }
+    err.textContent = msg;
+  };
+  const clearErrors = () => {
+    $$('.field-error', form).forEach(el => el.remove());
+    $$('input, textarea', form).forEach(el => el.style.borderColor = '');
+  };
+
+  form.addEventListener('submit', e => {
     e.preventDefault();
-    
-    const nombre = document.getElementById('nombre')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const telefono = document.getElementById('telefono')?.value.trim();
-    const mensaje = document.getElementById('mensaje')?.value.trim();
+    clearErrors();
 
-    if (!nombre || !email || !telefono || !mensaje) {
-      alert('Por favor completa todos los campos.');
-      return;
-    }
+    const nombre   = $('#nombre');
+    const email    = $('#email');
+    const telefono = $('#telefono');
+    const mensaje  = $('#mensaje');
+    let valid = true;
 
-    // Construir mensaje organizado para WhatsApp
-    const whatsappMessage = `*NUEVA CONSULTA JURÍDICA*%0A%0A*Nombre:* ${encodeURIComponent(nombre)}%0A*Email:* ${encodeURIComponent(email)}%0A*Teléfono:* ${encodeURIComponent(telefono)}%0A*Mensaje:* ${encodeURIComponent(mensaje)}%0A%0A📅 *Solicita consulta gratuita*`;
-    
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-    
-    // Abrir WhatsApp en nueva pestaña
-    window.open(whatsappURL, '_blank');
-    
-    // Opcional: mostrar mensaje de confirmación
-    alert(`✅ ¡Gracias ${nombre}! Serás redirigido a WhatsApp para completar tu solicitud.`);
-    
-    // Resetear formulario (opcional)
-    contactForm.reset();
+    if (!nombre.value.trim()) { showError(nombre, 'Por favor ingresa tu nombre.'); valid=false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showError(email, 'Ingresa un correo válido.'); valid=false; }
+    if (!/^[\d\s\-\+\(\)]{7,}$/.test(telefono.value.trim())) { showError(telefono, 'Ingresa un teléfono válido.'); valid=false; }
+    if (!mensaje.value.trim()) { showError(mensaje, 'Por favor describe tu caso.'); valid=false; }
+    if (!valid) return;
+
+    const enc = s => encodeURIComponent(s.trim());
+    const text = [
+      '*NUEVA CONSULTA JURÍDICA — LexCivis*',
+      '',
+      `*Nombre:* ${enc(nombre.value)}`,
+      `*Email:* ${enc(email.value)}`,
+      `*Teléfono:* ${enc(telefono.value)}`,
+      `*Mensaje:* ${enc(mensaje.value)}`,
+      '',
+      '📅 _Solicitud de consulta gratuita_'
+    ].join('%0A');
+
+    window.open(`https://wa.me/${WA_NUM}?text=${text}`, '_blank', 'noopener,noreferrer');
+    form.reset();
+
+    // Toast de confirmación
+    showToast(`¡Gracias, ${nombre.value.trim().split(' ')[0]}! Serás redirigido a WhatsApp.`);
   });
+})();
+
+/* ===================================================
+   8. TOAST NOTIFICATION
+=================================================== */
+function showToast(msg, duration = 4000) {
+  let toast = $('#toast-notification');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast-notification';
+    toast.style.cssText = `
+      position:fixed; bottom:100px; left:50%; transform:translateX(-50%) translateY(20px);
+      background:#0b1f2e; color:#fff; padding:14px 28px; border-radius:50px;
+      font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500;
+      box-shadow:0 8px 28px rgba(0,0,0,.25); z-index:9000;
+      border:1px solid rgba(201,152,74,.3);
+      display:flex; align-items:center; gap:10px;
+      opacity:0; transition:opacity .4s ease, transform .4s ease;
+      pointer-events:none; white-space:nowrap;
+    `;
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<i class="fas fa-check-circle" style="color:#c9984a"></i> ${msg}`;
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  });
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(12px)';
+  }, duration);
 }
 
-// ========== 6. BOTÓN SUBIR (SCROLL TOP) ==========
-const scrollTopBtn = document.getElementById('scrollTopBtn');
+/* ===================================================
+   9. ANIMATED COUNTERS (Stats bar)
+=================================================== */
+(function initCounters() {
+  const nums = $$('[data-count]');
+  if (!nums.length) return;
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    scrollTopBtn.classList.add('show');
-  } else {
-    scrollTopBtn.classList.remove('show');
-  }
-});
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el     = entry.target;
+      const end    = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1600;
+      const step   = 16;
+      const steps  = dur / step;
+      const inc    = end / steps;
+      let current  = 0;
+      const tick   = () => {
+        current = Math.min(current + inc, end);
+        el.textContent = (Number.isInteger(end) ? Math.round(current) : current.toFixed(1)) + suffix;
+        if (current < end) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
 
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  nums.forEach(el => io.observe(el));
+})();
 
-// ========== 7. NAVBAR SCROLL EFFECT ==========
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
-    navbar.style.background = 'rgba(255,255,255,0.98)';
-  } else {
-    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-    navbar.style.background = 'rgba(255,255,255,0.96)';
-  }
-});
-
-// Ajuste móvil
-window.addEventListener('resize', () => {
-  const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
+/* ===================================================
+   10. RESIZE HANDLER (vh fix iOS)
+=================================================== */
+(function initViewportFix() {
+  const set = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * .01}px`);
+  set();
+  window.addEventListener('resize', set, { passive:true });
+})();
