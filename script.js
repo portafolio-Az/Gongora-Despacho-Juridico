@@ -14,7 +14,8 @@ function updateCarousel(index) {
     dot.classList.toggle('active', i === index);
   });
   currentIndex = index;
-}
+} 
+
 
 function nextSlide() {
   let newIndex = (currentIndex + 1) % slides.length;
