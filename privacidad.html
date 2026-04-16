@@ -3,642 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Aviso de privacidad de Góngora Despacho Jurídico. Conoce cómo tratamos y protegemos tus datos personales.">
+  <meta name="description" content="Aviso de privacidad de Góngora Despacho Jurídico. Conoce cómo tratamos y protegemos tus datos personales conforme a la ley mexicana.">
   <meta name="robots" content="noindex, follow">
   <title>Aviso de Privacidad | Góngora Despacho Jurídico</title>
 
-  <!-- Preconnect -->
+  <!-- Mismos recursos que tu index -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-
-  <style>
-    /* ============================================================
-       TODOS LOS ESTILOS ORIGINALES (se mantienen exactamente igual)
-       ============================================================ */
-    :root {
-      --navy:        #0b1f2e;
-      --navy-mid:    #122a3f;
-      --navy-light:  #1c3f59;
-      --gold:        #c9984a;
-      --gold-light:  #e0b870;
-      --gold-dark:   #a87a32;
-      --cream:       #f8f4ee;
-      --white:       #ffffff;
-      --text-dark:   #0d1f2d;
-      --text-mid:    #3d5166;
-      --text-light:  #7a9ab5;
-      --border:      #e4ddd3;
-      --shadow-sm:   0 4px 14px rgba(11,31,46,.07);
-      --shadow-md:   0 12px 32px rgba(11,31,46,.12);
-      --shadow-lg:   0 24px 56px rgba(11,31,46,.18);
-      --radius-sm:   10px;
-      --radius-md:   20px;
-      --radius-lg:   32px;
-      --transition:  .35s cubic-bezier(.4,0,.2,1);
-    }
-
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; font-size:16px; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--white);
-      color: var(--text-dark);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    h1,h2,h3,h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      letter-spacing: -.015em;
-      line-height: 1.2;
-    }
-    img { display:block; max-width:100%; }
-    a  { text-decoration:none; color:inherit; }
-    ul { list-style:none; }
-    button { font-family:inherit; cursor:pointer; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-    .section { padding: 90px 0; }
-
-    /* ---------- LOADER ---------- */
-    #page-loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: var(--navy);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      transition: opacity .6s ease, visibility .6s ease;
-    }
-    #page-loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .loader-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: .05em;
-      text-align: center;
-      opacity: 0;
-      animation: loaderFade .5s .1s forwards;
-    }
-    .loader-logo span { color: var(--gold); }
-    .loader-bar-wrap {
-      width: 180px;
-      height: 2px;
-      background: rgba(255,255,255,.15);
-      border-radius: 2px;
-      overflow: hidden;
-      opacity: 0;
-      animation: loaderFade .5s .25s forwards;
-    }
-    .loader-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-      border-radius: 2px;
-      animation: loaderProgress 1s .3s ease-out forwards;
-    }
-    @keyframes loaderFade { to { opacity:1; } }
-    @keyframes loaderProgress { from { width:0; } to { width:100%; } }
-
-    /* ---------- TYPOGRAPHY HELPERS ---------- */
-    .section-tag {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: .78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .section-header h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--navy);
-    }
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      margin: 20px auto 22px;
-      border-radius: 2px;
-    }
-
-    /* ---------- BUTTONS ---------- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 34px;
-      border-radius: 50px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: .95rem;
-      font-weight: 600;
-      border: 2px solid transparent;
-      transition: var(--transition);
-      cursor: pointer;
-      letter-spacing: .02em;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
-      color: var(--navy);
-      box-shadow: 0 8px 24px rgba(201,152,74,.4);
-      position: relative;
-      overflow: hidden;
-      padding: 16px 42px;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
-      transition: left 0.5s ease;
-    }
-    .btn-primary:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(201,152,74,.5);
-    }
-    .btn-primary:hover::before { left: 100%; }
-    .btn-outline {
-      background: transparent;
-      border-color: var(--navy);
-      color: var(--navy);
-    }
-    .btn-outline:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-    .btn-full { width:100%; justify-content:center; }
-    .btn-gold-sm {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-      color: var(--gold);
-      font-weight: 600;
-      font-size: .88rem;
-      transition: gap var(--transition);
-    }
-    .btn-gold-sm:hover { gap: 12px; }
-
-    /* ---------- NAVBAR (idéntica) ---------- */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 18px 0;
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 var(--border);
-      transition: padding var(--transition), box-shadow var(--transition);
-    }
-    .navbar.scrolled {
-      padding: 12px 0;
-      box-shadow: var(--shadow-sm);
-    }
-    .nav-container {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--navy);
-      flex-shrink: 0;
-    }
-    .logo-icon { color: var(--gold); font-size: 1.5rem; }
-    .nav-menu { flex:1; }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-    }
-    .nav-link {
-      font-size: .9rem;
-      font-weight: 500;
-      color: var(--text-mid);
-      position: relative;
-      padding-bottom: 4px;
-      transition: color var(--transition);
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      border-radius: 2px;
-      transition: width var(--transition);
-    }
-    .nav-link:hover { color: var(--navy); }
-    .nav-link:hover::after { width: 100%; }
-    .nav-phone { margin-left: auto; flex-shrink:0; }
-    .phone-link {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      background: var(--navy);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-size: .88rem;
-      font-weight: 600;
-      letter-spacing: .02em;
-      transition: var(--transition);
-      box-shadow: 0 4px 14px rgba(11,31,46,.2);
-    }
-    .phone-link i { color: var(--gold); font-size: .95rem; }
-    .phone-link:hover {
-      background: var(--gold);
-      color: var(--navy);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(201,152,74,.35);
-    }
-    .phone-link:hover i { color: var(--navy); }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 40px;
-      height: 40px;
-      background: var(--cream);
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 8px;
-      cursor: pointer;
-    }
-    .hamburger span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: var(--navy);
-      border-radius: 2px;
-      transition: var(--transition);
-      transform-origin: center;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity:0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* ---------- AVISO DE PRIVACIDAD (ESTILOS ADICIONALES) ---------- */
-    .aviso-content {
-      background: var(--white);
-      padding: 2rem 0;
-    }
-    .aviso-card {
-      background: var(--cream);
-      border-radius: var(--radius-lg);
-      padding: 3rem 2.5rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-    }
-    .aviso-card h1 {
-      font-size: 2.5rem;
-      color: var(--navy);
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--gold);
-      padding-left: 1rem;
-    }
-    .aviso-card h2 {
-      font-size: 1.8rem;
-      margin: 1.8rem 0 1rem;
-      color: var(--navy-mid);
-    }
-    .aviso-card h3 {
-      font-size: 1.4rem;
-      margin: 1.5rem 0 0.8rem;
-      color: var(--navy-light);
-    }
-    .aviso-card p {
-      margin-bottom: 1rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    .aviso-card ul, .aviso-card ol {
-      margin: 1rem 0 1.5rem 2rem;
-      color: var(--text-mid);
-    }
-    .aviso-card li {
-      margin-bottom: 0.5rem;
-    }
-    .aviso-card strong {
-      color: var(--navy);
-      font-weight: 600;
-    }
-    .aviso-card .legal-note {
-      background: rgba(201,152,74,.08);
-      padding: 1.2rem;
-      border-radius: var(--radius-md);
-      margin: 1.5rem 0;
-      border-left: 3px solid var(--gold);
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      .aviso-card { padding: 1.8rem; }
-      .aviso-card h1 { font-size: 1.8rem; }
-      .aviso-card h2 { font-size: 1.5rem; }
-    }
-
-    /* ---------- FOOTER (idéntico) ---------- */
-    .footer {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-    .footer-noise {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-      background-size: 200px;
-      pointer-events: none;
-      opacity: .5;
-    }
-    .footer-top {
-      padding: 64px 0 48px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      position: relative;
-      z-index: 1;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.4fr;
-      gap: 40px;
-    }
-    .footer-logo-mark {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .footer-logo-mark i { color: var(--gold); }
-    .footer-brand p {
-      font-size: .88rem;
-      color: rgba(255,255,255,.5);
-      line-height: 1.7;
-      max-width: 260px;
-      margin-bottom: 24px;
-    }
-    .social-icons {
-      display: flex;
-      gap: 12px;
-    }
-    .social-icons a {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,.6);
-      font-size: .9rem;
-      transition: var(--transition);
-    }
-    .social-icons a:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy);
-      transform: translateY(-3px);
-    }
-    .footer-col h4 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: .78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: var(--gold);
-      margin-bottom: 22px;
-    }
-    .footer-col ul li + li { margin-top: 12px; }
-    .footer-col a {
-      font-size: .88rem;
-      color: rgba(255,255,255,.5);
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-col a:hover { color: var(--gold-light); padding-left: 4px; }
-    .footer-contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .footer-contact-item i {
-      color: var(--gold);
-      font-size: .9rem;
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-    .footer-contact-item span { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.5; }
-    .footer-hours p {
-      font-size: .88rem;
-      color: rgba(255,255,255,.5);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-hours p i { color: var(--gold); font-size: .8rem; }
-    .footer-bottom {
-      padding: 22px 0;
-      position: relative;
-      z-index: 1;
-    }
-    .footer-bottom .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.35); }
-    .footer-bottom a { color: var(--gold); transition: color var(--transition); }
-    .footer-bottom a:hover { color: var(--gold-light); }
-
-    /* ---------- WHATSAPP FLOAT & SCROLL TOP ---------- */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 56px;
-      height: 56px;
-      background: #25D366;
-      color: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      box-shadow: 0 6px 20px rgba(37,211,102,.4);
-      z-index: 998;
-      transition: var(--transition);
-    }
-    .whatsapp-float:hover {
-      background: #128C7E;
-      transform: scale(1.1);
-      box-shadow: 0 10px 28px rgba(37,211,102,.5);
-    }
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 100px;
-      right: 28px;
-      width: 46px;
-      height: 46px;
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      box-shadow: 0 4px 14px rgba(201,152,74,.4);
-      z-index: 998;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: var(--transition);
-      cursor: pointer;
-    }
-    .scroll-top-btn.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .scroll-top-btn:hover {
-      background: var(--navy);
-      color: var(--white);
-      transform: translateY(-3px);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 1100px) {
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 992px) {
-      .nav-menu { display:none; }
-      .hamburger { display:flex; }
-      .nav-phone { margin-left: auto; }
-    }
-    @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-      .footer-grid { grid-template-columns: 1fr; text-align: center; }
-      .footer-brand p { margin-left: auto; margin-right: auto; text-align: center; }
-      .social-icons { justify-content: center; }
-      .footer-col ul li a { justify-content: center; }
-      .footer-contact-item { justify-content: center; }
-      .footer-hours p { justify-content: center; }
-      .footer-bottom .container { flex-direction: column; text-align: center; }
-      .nav-phone { display: none; }
-    }
-    @media (max-width: 480px) {
-      .container { padding: 0 18px; }
-    }
-
-    /* Mobile nav overlay */
-    .nav-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(11,31,46,.5);
-      z-index: 998;
-      backdrop-filter: blur(4px);
-    }
-    .nav-overlay.visible { display:block; }
-    .nav-menu-mobile {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: min(320px, 85vw);
-      height: 100vh;
-      background: var(--white);
-      z-index: 999;
-      padding: 80px 32px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: right var(--transition);
-      box-shadow: var(--shadow-lg);
-    }
-    .nav-menu-mobile.open { right: 0; }
-    .nav-menu-mobile .nav-link {
-      display: block;
-      padding: 14px 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-menu-mobile .nav-link::after { display:none; }
-    .nav-menu-mobile .phone-link span { display: inline; }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ===================== LOADER ===================== -->
+  <!-- ===================== LOADER (mismo que en index) ===================== -->
   <div id="page-loader" role="status" aria-label="Cargando">
     <p class="loader-logo">Góngora <span>Despacho Jurídico</span></p>
-    <div class="loader-bar-wrap">
-      <div class="loader-bar"></div>
-    </div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   </div>
 
   <!-- ===================== WHATSAPP FLOAT ===================== -->
-  <a href="https://wa.me/525544705244?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20el%20aviso%20de%20privacidad"
-     class="whatsapp-float"
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/525544705244?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20el%20aviso%20de%20privacidad" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <!-- ===================== SCROLL TOP ===================== -->
-  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba"><i class="fas fa-chevron-up"></i></button>
 
   <!-- ===================== MOBILE OVERLAY & MENU ===================== -->
   <div class="nav-overlay" id="navOverlay"></div>
@@ -649,10 +39,7 @@
     <a href="index.html#sobre"               class="nav-link">Nosotros</a>
     <a href="index.html#testimonios"         class="nav-link">Testimonios</a>
     <a href="index.html#contacto"            class="nav-link">Contacto</a>
-    <a href="tel:+525544705244" class="phone-link">
-      <i class="fas fa-phone-alt"></i>
-      <span>55 4470 5244</span>
-    </a>
+    <a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i><span>55 4470 5244</span></a>
   </nav>
 
   <!-- ===================== NAVBAR ===================== -->
@@ -662,8 +49,6 @@
         <span class="logo-icon"><i class="fas fa-gavel"></i></span>
         <span class="logo-text">Góngora Despacho Jurídico</span>
       </a>
-
-      <!-- Desktop nav -->
       <nav class="nav-menu" aria-label="Menú principal">
         <ul class="nav-links">
           <li><a href="index.html#inicio"               class="nav-link">Inicio</a></li>
@@ -674,101 +59,110 @@
           <li><a href="index.html#contacto"             class="nav-link">Contacto</a></li>
         </ul>
       </nav>
-
-      <!-- Phone CTA (desktop) -->
       <div class="nav-phone">
-        <a href="tel:+525544705244" class="phone-link" aria-label="Llamar al despacho">
-          <i class="fas fa-phone-alt"></i>
-          <span>55 4470 5244</span>
-        </a>
+        <a href="tel:+525544705244" class="phone-link"><i class="fas fa-phone-alt"></i><span>55 4470 5244</span></a>
       </div>
-
-      <!-- Hamburger (mobile) -->
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <main>
-    <!-- =================== CONTENIDO DEL AVISO DE PRIVACIDAD =================== -->
-    <section class="aviso-content">
+    <!-- =================== AVISO DE PRIVACIDAD MEJORADO =================== -->
+    <section class="section privacy-section">
       <div class="container">
-        <div class="aviso-card">
-          <h1>Aviso de Privacidad</h1>
-          <p>En cumplimiento con lo establecido por la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</strong> (en adelante “la Ley”), <strong>Góngora Despacho Jurídico</strong>, con domicilio en <strong>Paseo de la Reforma 265, Colonia Cuauhtémoc, C.P. 06500, Ciudad de México</strong>, hace de su conocimiento que sus datos personales serán tratados con absoluta confidencialidad y bajo los principios de licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad.</p>
-
-          <h2>Datos Personales que Recabamos</h2>
-          <p>Usted puede navegar por nuestro sitio web sin proporcionar datos personales. Sin embargo, existen determinadas secciones dentro del mismo (como formularios de contacto, solicitud de consultas o chat en línea) en donde usted puede proporcionar voluntariamente sus datos. Sus datos pueden ser recabados en diferentes situaciones, por ejemplo cuando:</p>
-          <ul>
-            <li>Nos proporciona su <strong>nombre completo</strong>, <strong>número telefónico</strong> y <strong>correo electrónico</strong>.</li>
-            <li>Solicita una asesoría jurídica a través de nuestros canales digitales o telefónicos.</li>
-            <li>Se suscribe a nuestros boletines informativos o publicaciones legales.</li>
-          </ul>
-
-          <h2>Finalidades del Tratamiento de Datos</h2>
-          <p>Los datos personales que recabamos serán utilizados exclusivamente para las siguientes finalidades:</p>
-          <ul>
-            <li>Proveer los servicios legales y asesorías solicitadas.</li>
-            <li>Contactar al titular para dar seguimiento a su consulta o caso.</li>
-            <li>Enviar información relevante sobre actualizaciones legales, cambios normativos o eventos del despacho (siempre que haya otorgado su consentimiento).</li>
-            <li>Dar cumplimiento a obligaciones derivadas de relaciones jurídicas con nuestros clientes.</li>
-          </ul>
-          <p>De manera adicional, sus datos podrán ser utilizados para fines no incompatibles con los anteriores, como la elaboración de estadísticas internas o mejora de nuestros servicios, siempre previa anonimización de la información.</p>
-
-          <h2>El Otorgamiento de Asesorías Jurídicas</h2>
-          <p>Los datos personales que nos proporcione en el marco de una relación profesional serán guardados bajo la más estricta confidencialidad y no se les dará un uso distinto al pactado, salvo que se haga un cambio en este Aviso de Privacidad o dichos datos sean entregados al personal autorizado del Despacho o a terceros colaboradores (peritos, autoridades judiciales, etc.) exclusivamente para el cumplimiento del servicio contratado. En ningún caso se comercializarán o divulgarán sus datos sin su consentimiento expreso.</p>
-
-          <h2>Recolección de Datos Personales</h2>
-          <p>Para la recolección de datos personales, Góngora Despacho Jurídico sigue todos los principios que marca la Ley: licitud, calidad, consentimiento, información, finalidad, lealtad, proporcionalidad y responsabilidad. Los datos personales se podrán solicitar con la intención de:</p>
-          <ul>
-            <li>Confirmar su identidad y legitimar su solicitud.</li>
-            <li>Entender y atender sus necesidades de carácter legal.</li>
-            <li>Brindarle asesoría legal personalizada y estratégica.</li>
-          </ul>
-          <p>Todos los Datos Personales proporcionados al Despacho serán considerados como información confidencial, obligación que subsistirá a pesar de que el titular haya finalizado su relación con el despacho. Asimismo, dichos datos no serán divulgados a terceras personas sin la autorización de su titular, salvo las excepciones previstas en la Ley.</p>
-
-          <h2>Ejercicio de Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h2>
-          <p>El titular de los datos personales, o su representante legal debidamente acreditado, podrá ejercer sus derechos de acceso, rectificación, cancelación y oposición, así como revocar el consentimiento otorgado para el tratamiento de sus datos, mediante solicitud escrita dirigida a:</p>
-          <div class="legal-note">
-            <strong>Góngora Despacho Jurídico</strong><br>
-            Atención: Departamento de Privacidad<br>
-            Domicilio: Paseo de la Reforma 265, Col. Cuauhtémoc, C.P. 06500, CDMX<br>
-            Correo electrónico: <strong>privacidad@lexcivis.mx</strong>
+        <div class="privacy-wrapper">
+          <!-- Encabezado -->
+          <div class="privacy-header fade-up">
+            <span class="section-tag"><i class="fas fa-shield-alt"></i> &nbsp; Transparencia y protección</span>
+            <h1>Aviso de Privacidad</h1>
+            <div class="divider"></div>
+            <p class="privacy-subtitle">En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares</p>
           </div>
-          <p>La solicitud deberá contener: nombre completo del titular, domicilio o medio para recibir notificaciones, documentos que acrediten la identidad (o personalidad del representante), descripción clara de los datos respecto de los cuales se busca ejercer algún derecho, y cualquier otro elemento que facilite la localización de los datos. El Despacho dará respuesta en un plazo máximo de 20 días hábiles, conforme a lo establecido en la Ley.</p>
 
-          <h2>Uso de Cookies y Tecnologías de Rastreo</h2>
-          <p>Le informamos que en nuestro sitio web utilizamos cookies propias y de terceros para mejorar su experiencia de navegación, analizar el tráfico y personalizar contenidos. Las <strong>cookies</strong> son pequeños archivos de texto que se almacenan en su dispositivo y que no contienen información sensible como nombres o direcciones. Puede desactivar las cookies desde la configuración de su navegador (generalmente en la sección Herramientas / Preferencias / Privacidad). Sin embargo, al desactivarlas es posible que algunas funcionalidades del sitio se vean afectadas.</p>
-          <p>Asimismo, hacemos de su conocimiento que nuestro sitio puede incluir enlaces a redes sociales o a páginas de terceros; Góngora Despacho Jurídico no se hace responsable del tratamiento de datos que dichos terceros realicen. Le recomendamos revisar sus propios avisos de privacidad.</p>
+          <div class="privacy-grid">
+            <!-- Contenido principal -->
+            <div class="privacy-content fade-up">
+              <div class="privacy-card">
+                <p><strong>Góngora Despacho Jurídico</strong>, con domicilio en <strong>Paseo de la Reforma 265, Colonia Cuauhtémoc, C.P. 06500, Ciudad de México</strong>, es el responsable del tratamiento de sus datos personales. La presente política de privacidad describe cómo recabamos, usamos y protegemos su información.</p>
 
-          <h2>Modificaciones al Aviso de Privacidad</h2>
-          <p>El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades o de cualquier otra causa. Cualquier cambio será notificado a través de nuestro sitio web (<strong>www.lexcivis.mx/privacidad</strong>) o mediante correo electrónico si contamos con su dirección. La fecha de la última actualización se encuentra al final de este documento.</p>
+                <h2><i class="fas fa-database"></i> Datos personales que recabamos</h2>
+                <p>Podemos obtener sus datos personales de diversas formas: cuando los proporciona directamente en nuestro sitio web (formularios de contacto, chat, suscripción a boletines), cuando nos contacta por teléfono o correo electrónico, o cuando asiste a nuestras instalaciones. Los datos que podemos recabar incluyen:</p>
+                <ul>
+                  <li>Nombre completo</li>
+                  <li>Dirección de correo electrónico</li>
+                  <li>Número telefónico (fijo o móvil)</li>
+                  <li>Información sobre su caso o consulta legal</li>
+                </ul>
 
-          <p><strong>Fecha de última actualización:</strong> 16 de abril de 2026.</p>
+                <h2><i class="fas fa-chart-line"></i> Finalidades del tratamiento</h2>
+                <p>Sus datos personales serán utilizados exclusivamente para las siguientes finalidades primarias:</p>
+                <ul>
+                  <li>Proveer la asesoría o servicio legal solicitado.</li>
+                  <li>Contactarle para dar seguimiento a su consulta.</li>
+                  <li>Enviarle información sobre actualizaciones legales o eventos (si ha dado su consentimiento).</li>
+                  <li>Dar cumplimiento a obligaciones legales y contractuales.</li>
+                </ul>
+                <p>De manera secundaria, podremos utilizar sus datos para mejorar nuestros servicios, elaborar estadísticas internas o enviarle comunicados comerciales, siempre previa autorización expresa.</p>
 
-          <div class="legal-note">
-            <i class="fas fa-shield-alt" style="margin-right: 8px;"></i> Si tiene dudas sobre el tratamiento de sus datos personales, puede contactar a nuestro <strong>Oficial de Privacidad</strong> en <strong>privacidad@lexcivis.mx</strong> o al teléfono <strong>55 4470 5244</strong>.
+                <h2><i class="fas fa-user-secret"></i> Confidencialidad y seguridad</h2>
+                <p>Todos los datos personales que nos proporcione serán tratados bajo estrictas medidas de seguridad administrativas, técnicas y físicas para evitar su daño, pérdida, alteración, destrucción o acceso no autorizado. La confidencialidad se mantendrá aún después de terminada la relación con el despacho.</p>
+
+                <h2><i class="fas fa-gavel"></i> Ejercicio de derechos ARCO</h2>
+                <p>Usted o su representante legal podrán ejercer los derechos de <strong>Acceso, Rectificación, Cancelación y Oposición</strong> (derechos ARCO), así como revocar su consentimiento, mediante solicitud enviada a:</p>
+                <div class="legal-box">
+                  <i class="fas fa-envelope"></i> <strong>Departamento de Privacidad</strong><br>
+                  Correo: <a href="mailto:privacidad@lexcivis.mx">privacidad@lexcivis.mx</a><br>
+                  Teléfono: 55 4470 5244<br>
+                  Domicilio: Paseo de la Reforma 265, CDMX
+                </div>
+                <p>La solicitud deberá contener: nombre completo, domicilio o medio para recibir notificaciones, documentos que acrediten su identidad (o personalidad del representante), una descripción clara de los datos respecto de los cuales busca ejercer algún derecho, y cualquier otro elemento que facilite la localización de sus datos. Responderemos en un plazo máximo de 20 días hábiles.</p>
+
+                <h2><i class="fas fa-cookie-bite"></i> Uso de cookies y tecnologías de rastreo</h2>
+                <p>Nuestro sitio web utiliza cookies propias y de terceros para mejorar su experiencia de navegación, analizar el tráfico y personalizar contenidos. Las cookies son pequeños archivos de texto que se almacenan en su dispositivo y no contienen información personal sensible. Puede desactivarlas desde la configuración de su navegador (generalmente en "Herramientas" → "Privacidad"). Sin embargo, al desactivarlas es posible que algunas funciones del sitio se vean afectadas.</p>
+                <p>No nos hacemos responsables por el tratamiento de datos que realicen terceros (redes sociales, plataformas externas) a través de enlaces presentes en nuestro sitio.</p>
+
+                <h2><i class="fas fa-edit"></i> Modificaciones al aviso de privacidad</h2>
+                <p>El presente aviso puede ser actualizado en cualquier momento. Cualquier cambio será notificado a través de nuestro sitio web (<strong>www.lexcivis.mx/privacidad</strong>) o por correo electrónico si contamos con su dirección. La fecha de la última actualización se indica al final de este documento.</p>
+
+                <p class="privacy-date"><strong>Última actualización:</strong> 16 de abril de 2026.</p>
+              </div>
+            </div>
+
+            <!-- Barra lateral informativa -->
+            <aside class="privacy-sidebar fade-up delay-2">
+              <div class="sidebar-card">
+                <i class="fas fa-balance-scale"></i>
+                <h3>¿Dudas?</h3>
+                <p>Si requiere más información sobre el tratamiento de sus datos, puede contactar a nuestro <strong>Oficial de Privacidad</strong>.</p>
+                <a href="mailto:privacidad@lexcivis.mx" class="btn-gold-sm"><i class="fas fa-envelope"></i> privacidad@lexcivis.mx</a>
+              </div>
+              <div class="sidebar-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Base legal</h3>
+                <p>Este aviso se rige por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y su Reglamento.</p>
+              </div>
+              <div class="sidebar-card">
+                <i class="fas fa-clock"></i>
+                <h3>Respuesta ARCO</h3>
+                <p>Plazo máximo: 20 días hábiles. La respuesta se enviará por el medio que usted elija.</p>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- ===================== FOOTER (idéntico a tu index) ===================== -->
   <footer class="footer">
     <div class="footer-noise" aria-hidden="true"></div>
-
     <div class="footer-top">
       <div class="container">
         <div class="footer-grid">
-
           <div class="footer-brand">
-            <div class="footer-logo-mark">
-              <i class="fas fa-gavel"></i> Góngora Despacho Jurídico
-            </div>
+            <div class="footer-logo-mark"><i class="fas fa-gavel"></i> Góngora Despacho Jurídico</div>
             <p>Despacho jurídico con visión estratégica y compromiso absoluto con nuestros clientes.</p>
             <div class="social-icons">
               <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -777,50 +171,33 @@
               <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
-
           <div class="footer-col">
             <h4>Navegación</h4>
             <ul>
-              <li><a href="index.html#inicio"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Inicio</a></li>
-              <li><a href="index.html#servicios"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Servicios</a></li>
-              <li><a href="index.html#servicios-detallados"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Especialidades</a></li>
-              <li><a href="index.html#sobre"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Nosotros</a></li>
-              <li><a href="index.html#testimonios"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Testimonios</a></li>
-              <li><a href="index.html#contacto"><i class="fas fa-chevron-right" style="font-size:.65rem"></i> Contacto</a></li>
+              <li><a href="index.html#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+              <li><a href="index.html#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+              <li><a href="index.html#servicios-detallados"><i class="fas fa-chevron-right"></i> Especialidades</a></li>
+              <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+              <li><a href="index.html#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+              <li><a href="index.html#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
             </ul>
           </div>
-
           <div class="footer-col footer-hours">
             <h4>Horario</h4>
             <p><i class="fas fa-circle" style="font-size:.4rem;color:#4caf50"></i> Lun – Vie: 9:00 – 19:00</p>
             <p><i class="fas fa-circle" style="font-size:.4rem;color:#4caf50"></i> Sábados: 10:00 – 14:00</p>
             <p><i class="fas fa-circle" style="font-size:.4rem;color:#ffb300"></i> Virtual: 24/7</p>
           </div>
-
           <div class="footer-col">
             <h4>Contacto directo</h4>
-            <div class="footer-contact-item">
-              <i class="fas fa-phone-alt"></i>
-              <span>+52 55 4470 5244</span>
-            </div>
-            <div class="footer-contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>contacto@lexcivis.mx</span>
-            </div>
-            <div class="footer-contact-item">
-              <i class="fab fa-whatsapp"></i>
-              <span>WhatsApp: 55 4470 5244</span>
-            </div>
-            <div class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Reforma 265, CDMX</span>
-            </div>
+            <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+52 55 4470 5244</span></div>
+            <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contacto@lexcivis.mx</span></div>
+            <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>WhatsApp: 55 4470 5244</span></div>
+            <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Reforma 265, CDMX</span></div>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="container">
         <p>&copy; 2026 Góngora Despacho Jurídico. Todos los derechos reservados.</p>
@@ -829,118 +206,6 @@
     </div>
   </footer>
 
-  <script>
-    // ============================================================
-    // SCRIPT COMPLETO (adaptado para la página de privacidad)
-    // ============================================================
-    (function() {
-      'use strict';
-
-      const $ = (sel, ctx = document) => ctx.querySelector(sel);
-      const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-
-      // 1. LOADER
-      const loader = $('#page-loader');
-      if (loader) {
-        const hide = () => {
-          loader.classList.add('hidden');
-          loader.addEventListener('transitionend', () => loader.remove(), { once: true });
-        };
-        const t0 = performance.now();
-        const MIN = 1000;
-        const go = () => {
-          const elapsed = performance.now() - t0;
-          const wait = Math.max(0, MIN - elapsed);
-          setTimeout(hide, wait);
-        };
-        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go, { once: true });
-        else go();
-      }
-
-      // 2. NAVBAR SCROLL + MOBILE MENU
-      const navbar = $('.navbar');
-      if (navbar) {
-        const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 60);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-
-      const hamburger = $('.hamburger');
-      const mobileMenu = $('.nav-menu-mobile');
-      const overlay = $('.nav-overlay');
-      const openMenu = () => {
-        mobileMenu?.classList.add('open');
-        overlay?.classList.add('visible');
-        hamburger?.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      };
-      const closeMenu = () => {
-        mobileMenu?.classList.remove('open');
-        overlay?.classList.remove('visible');
-        hamburger?.classList.remove('open');
-        document.body.style.overflow = '';
-      };
-      const toggleMenu = () => mobileMenu?.classList.contains('open') ? closeMenu() : openMenu();
-      hamburger?.addEventListener('click', toggleMenu);
-      overlay?.addEventListener('click', closeMenu);
-      $$('.nav-menu-mobile .nav-link').forEach(link => link.addEventListener('click', closeMenu));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-
-      // 3. SCROLL TOP BUTTON
-      const scrollBtn = $('#scrollTopBtn');
-      if (scrollBtn) {
-        window.addEventListener('scroll', () => scrollBtn.classList.toggle('show', window.scrollY > 420), { passive: true });
-        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      }
-
-      // 4. SMOOTH SCROLL SOLO PARA ANCLAJES INTERNOS (por si acaso)
-      $$('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const id = this.getAttribute('href');
-          if (!id || id === '#') return;
-          const target = $(id);
-          if (!target) return;
-          e.preventDefault();
-          const top = target.getBoundingClientRect().top + window.scrollY - 72;
-          window.scrollTo({ top, behavior: 'smooth' });
-        });
-      });
-
-      // 5. TOAST (por si se usa, no es necesario pero se mantiene)
-      function showToast(msg, duration = 4000) {
-        let toast = $('#toast-notification');
-        if (!toast) {
-          toast = document.createElement('div');
-          toast.id = 'toast-notification';
-          toast.style.cssText = `
-            position:fixed; bottom:100px; left:50%; transform:translateX(-50%) translateY(20px);
-            background:#0b1f2e; color:#fff; padding:14px 28px; border-radius:50px;
-            font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:500;
-            box-shadow:0 8px 28px rgba(0,0,0,.25); z-index:9000;
-            border:1px solid rgba(201,152,74,.3);
-            display:flex; align-items:center; gap:10px;
-            opacity:0; transition:opacity .4s ease, transform .4s ease;
-            pointer-events:none; white-space:nowrap;
-          `;
-          document.body.appendChild(toast);
-        }
-        toast.innerHTML = `<i class="fas fa-check-circle" style="color:#c9984a"></i> ${msg}`;
-        requestAnimationFrame(() => {
-          toast.style.opacity = '1';
-          toast.style.transform = 'translateX(-50%) translateY(0)';
-        });
-        clearTimeout(toast._timer);
-        toast._timer = setTimeout(() => {
-          toast.style.opacity = '0';
-          toast.style.transform = 'translateX(-50%) translateY(12px)';
-        }, duration);
-      }
-
-      // 6. VIEWPORT FIX
-      const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * .01}px`);
-      setVh();
-      window.addEventListener('resize', setVh, { passive: true });
-    })();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>

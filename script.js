@@ -319,3 +319,28 @@ function showToast(msg, duration = 4000) {
   set();
   window.addEventListener('resize', set, { passive:true });
 })();
+
+
+
+// Asegurar scroll reveal en la página de privacidad
+(function initPrivacyReveal() {
+  const targets = document.querySelectorAll('.privacy-section .fade-up');
+  if (!targets.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  targets.forEach(el => observer.observe(el));
+  // Forzar revelado si ya son visibles
+  requestAnimationFrame(() => {
+    targets.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
+        el.classList.add('revealed');
+      }
+    });
+  });
+})();
